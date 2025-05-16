@@ -1,0 +1,23 @@
+{{>layouts/header}}
+<main class="d-flex justify-content-center align-items-center" style="margin-top: 50px;">
+    <div class="container" style="max-width: 400px;">
+        <h2 class="text-center mb-4">로그인</h2>
+        <form action="/login" method="post" class="p-4 shadow rounded" style="background-color: #f8f9fa;">
+            <div class="mb-3">
+                <label for="username" class="form-label">사용자명:</label>
+                <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">비밀번호:</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-primary">로그인</button>
+            </div>
+        </form>
+        <div class="text-center mt-3">
+            <p>계정이 없으신가요? <a href="/signup">회원가입</a></p>
+        </div>
+    </div>
+</main>
+{{>layouts/footer}}

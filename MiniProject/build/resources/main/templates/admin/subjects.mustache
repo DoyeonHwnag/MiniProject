@@ -1,0 +1,52 @@
+{{>layouts/header}}
+<body class="container mt-5">
+<h1>과목 관리</h1>
+
+<a href="/admin/subjects/add" class="btn btn-primary mb-3">과목 추가</a>
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>과목 코드</th>
+        <th>과목명</th>
+        <th>교수명</th>
+        <th>학년</th>
+        <th>학점</th>
+        <th>정원</th>
+        <th>요일</th>
+        <th>시작 시간</th>
+        <th>종료 시간</th>
+        <th>학기</th>
+        <th>강의 계획서</th>
+        <th>관리</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#subjects}}
+        <tr>
+            <td>{{subjectCode}}</td>
+            <td>{{subjectName}}</td>
+            <td>{{professorName}}</td>
+            <td>{{grade}}</td>
+            <td>{{credit}}</td>
+            <td>{{capacity}}</td>
+            <td>{{dayOfWeek}}</td>
+            <td>{{startTime}}</td>
+            <td>{{endTime}}</td>
+            <td>{{semester}}</td>
+            <td>
+                {{#syllabusPath}}
+                    <a href="/admin/subjects/download/{{subjectCode}}" class="btn btn-sm btn-info">강의계획서</a>
+                {{/syllabusPath}}
+            </td>
+            <td>
+                <a href="/admin/subjects/edit/{{subjectCode}}" class="btn btn-sm btn-warning">수정</a>
+                <form action="/admin/subjects/delete/{{subjectCode}}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-sm btn-danger">삭제</button>
+                </form>
+            </td>
+        </tr>
+    {{/subjects}}
+    </tbody>
+</table>
+{{>layouts/footer}}

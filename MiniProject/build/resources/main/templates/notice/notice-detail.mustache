@@ -1,0 +1,26 @@
+{{>layouts/header}}
+
+<div class="container mt-5">
+    <h2>{{notice.title}}</h2>
+
+    <p class="text-muted">작성일: {{notice.createdAt}}</p>
+    <hr>
+
+    <div>{{notice.content}}</div>
+
+    <div class="mt-4">
+        <a href="/notices" class="btn btn-secondary">목록으로</a>
+
+        {{#user}}
+            {{#role}}
+                {{#isAdmin}}
+                    <a href="/notices/edit/{{notice.id}}" class="btn btn-warning">수정</a>
+                    <form action="/notices/delete/{{notice.id}}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">삭제</button>
+                    </form>
+                {{/isAdmin}}
+            {{/role}}
+        {{/user}}
+    </div>
+</div>
+{{>layouts/footer}}

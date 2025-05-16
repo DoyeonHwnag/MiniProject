@@ -1,0 +1,22 @@
+{{>layouts/header}}
+
+<div class="container mt-5">
+    <h2>공지사항 수정</h2>
+
+    <form action="/notices/edit" method="post">
+        <input type="hidden" name="id" value="{{notice.id}}">
+
+        <div class="mb-3">
+            <label for="title" class="form-label">제목</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{notice.title}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">내용</label>
+            <textarea class="form-control" id="content" name="content" rows="10" required>{{notice.content}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-success">수정 완료</button>
+        <a href="/notices/{{notice.id}}" class="btn btn-secondary">취소</a>
+    </form>
+</div>
+
+{{>layouts/footer}}

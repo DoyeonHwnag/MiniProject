@@ -1,0 +1,75 @@
+{{> layouts/header}}
+{{#errorMessage}}
+    <div class="alert alert-danger text-center" role="alert">
+        {{errorMessage}}
+    </div>
+{{/errorMessage}}
+<style>
+    .announcement-container {
+    background-color: #f8f9fa;
+    border: 1px solid #6e7aeb;
+    padding: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 40px;
+}
+
+.announcement-icon {
+    font-size: 24px;
+    color: #6e7aeb;
+}
+
+.announcement-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    animation: scrollText 10s linear infinite;
+}
+
+@keyframes scrollText {
+    0% {
+        transform: translateY(0);
+    }
+    33% {
+        transform: translateY(-40px);
+    }
+    66% {
+        transform: translateY(-80px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+</style>
+<div id="mainCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="d-flex justify-content-center align-items-center" style="height: 200px; background-color: #6e7aeb; color: white;">
+                <h2>📅 오늘의 학습 목표를 설정하세요!</h2>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="d-flex justify-content-center align-items-center" style="height: 200px; background-color: #515d9a; color: white;">
+                <h2>✅ 학습 기록을 통해 성과를 확인하세요!</h2>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <div class="d-flex justify-content-center align-items-center" style="height: 200px; background-color: #343a40; color: white;">
+                <h2>💡 새로운 학습 팁을 확인해보세요!</h2>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    </button>
+</div>
+
+
+{{> layouts/footer}}
